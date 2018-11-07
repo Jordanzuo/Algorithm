@@ -1,4 +1,4 @@
-class Solution:
+class Solution1:
     def myPow(self, x, n):
         """
         :type x: float
@@ -18,7 +18,7 @@ class Solution:
             return self.myPow(x*x, n//2)
 
 
-class Solution:
+class Solution2:
     def myPow(self, x, n):
         """
         :type x: float
@@ -39,7 +39,7 @@ class Solution:
             return x * half * half
 
 
-class Solution:
+class Solution3:
     def myPow(self, x, n):
         """
         :type x: float
