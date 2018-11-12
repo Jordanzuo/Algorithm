@@ -29,7 +29,7 @@ class Solution1:
             self.dfs(root.right, level+1)
 
 # This method uses BFS. It's intuitive, but is not easy to implement.
-class Solution:
+class Solution2:
     def isLeaf(self, node):
         if node.left or node.right:
             return False
@@ -58,3 +58,9 @@ class Solution:
             level += 1
 
         return maxDep
+
+# This method uses DFS. This is the neatest method.
+class Solution3:
+    def maxDepth(self, root):
+        if not root: return 0
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
