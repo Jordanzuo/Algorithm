@@ -2,6 +2,32 @@
 
 class Solution1:
     def solveNQueens(self, n):
+        self.n = n
+        self.result = []
+        self.dfs(0, [], set(), set(), set())
+        return self.result
+
+    def dfs(self, row, validCols, usedCols, usedPies, usedNas):
+        if row == self.n:
+            self.result.append(["."*col+"Q"+"."*(self.n-col-1) for col in validCols])
+            return
+
+        for col in range(self.n):
+            pie = row + col
+            na = col - row
+            if col not in usedCols and pie not in usedPies and na not in usedNas:
+                validCols.append(col)
+                usedCols.add(col)
+                usedPies.add(pie)
+                usedNas.add(na)
+                self.dfs(row+1, validCols, usedCols, usedPies, usedNas)
+                validCols.pop(-1)
+                usedCols.remove(col)
+                usedPies.remove(pie)
+                usedNas.remove(na)
+
+class Solution2:
+    def solveNQueens(self, n):
         res = []
         self.dfs(0, [], set(), set(), set(), n, res)
         return res
@@ -23,7 +49,7 @@ class Solution1:
                 usedPies.remove(row+col)
                 usedNas.remove(col-row)
 
-class Solution2:
+class Solution3:
     def solveNQueens(self, n):
         self.n = n
         self.result = list()
