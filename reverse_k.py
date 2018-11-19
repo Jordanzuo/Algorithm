@@ -4,7 +4,8 @@
 #         self.val = x
 #         self.next = None
 
-class Solution:
+# This method is intuitive, and it's easy to implement
+class Solution1:
     def reverseKGroup(self, head, k):
         if not head or k == 1:
             return head
@@ -40,7 +41,29 @@ class ListItem:
         if self.ifReverse == False:
             return
         prev, curr = None, self.head
+        # This line is critical to this method
         self.tail.next = None
         while curr:
             curr.next, prev, curr = prev, curr, curr.next
         self.head, self.tail = self.tail, self.head
+
+# This method is intuitive, but is neat.
+class Solution2(object):
+    def reverseKGroup(self, head, k):
+        if not head or not head.next or k <= 1: return head
+
+        count = 0
+        curr = head
+        while curr and count < k:
+            count += 1
+            curr = curr.next
+        if count < k:
+            return head
+
+        count = 0
+        prev, curr = None, head
+        while curr and count < k:
+            count += 1
+            curr.next, prev, curr = prev, curr, curr.next
+        head.next = self.reverseKGroup(curr, k)
+        return prev
