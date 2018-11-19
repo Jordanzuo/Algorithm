@@ -50,20 +50,16 @@ class ListItem:
 # This method is intuitive, but is neat.
 class Solution2(object):
     def reverseKGroup(self, head, k):
-        if not head or not head.next or k <= 1: return head
+        if not head or not head.next or k < 2: return head
 
-        count = 0
         curr = head
-        while curr and count < k:
-            count += 1
+        for _ in range(k):
+            if not curr:
+                return head
             curr = curr.next
-        if count < k:
-            return head
 
-        count = 0
         prev, curr = None, head
-        while curr and count < k:
-            count += 1
+        for _ in range(k):
             curr.next, prev, curr = prev, curr, curr.next
         head.next = self.reverseKGroup(curr, k)
         return prev
