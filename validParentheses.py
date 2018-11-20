@@ -1,17 +1,18 @@
 class Solution(object):
     def isValid(self, s):
-        if len(s) == 0:
+        length = len(s)
+        if length == 0:
             return True
-        if len(s) % 2 == 1:
+        if length & 1:
             return False
 
-        charDict = {")":"(", "]":"[", "}":"{"}
+        charDic = {")":"(", "]":"[", "}":"{"}
         stack = []
         for c in s:
-            if c in charDict:
-                if not stack or stack.pop() != c:
+            if c in charDic:
+                if len(stack) == 0 or stack.pop() != charDic[c]:
                     return False
-                else:
-                    stack.append(c)
+            else:
+                stack.append(c)
 
         return len(stack) == 0
