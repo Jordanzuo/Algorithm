@@ -8,13 +8,11 @@ def partition(arr, low, high):
     i = low
     for j in range(low, high):
        if arr[j] < pivot:
-            if i != j:
-                arr[i], arr[j] = arr[j], arr[i]
+            if i != j: arr[i], arr[j] = arr[j], arr[i]
             i = i + 1
 
     # if i doesn't point to pivot, then switch them to make pivot to the right position.(after the last sorted item)
-    if i != high:
-        arr[i], arr[high] = arr[high], arr[i]
+    if i != high: arr[i], arr[high] = arr[high], arr[i]
 
     return i
 
@@ -27,8 +25,7 @@ def quickSort(itemList, low, high):
 if __name__ == "__main__":
     itemMap = map(int, sys.argv[1:])
     itemList = []
-    for item in itemMap:
-        itemList.append(item)
+    for item in itemMap: itemList.append(item)
 
     print("Before sort:")
     print("  ".join(map(str, itemList)))

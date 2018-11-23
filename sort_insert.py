@@ -1,11 +1,9 @@
 #!/usr/bin/pytho3
-
 import time
 import random
 
 def insertionSort1(a):
-    if len(a) <= 1:
-        return;
+    if len(a) <= 1: return
 
     for i in range(1, len(a)):
         value = a[i]
@@ -14,13 +12,11 @@ def insertionSort1(a):
             if a[j] > value:
                 a[j+1] = a[j]
                 j = j - 1
-            else:
-                break
+            else: break
         a[j+1] = value
 
 def insertionSort2(a):
-    if len(a) <= 1:
-        return;
+    if len(a) <= 1: return
 
     for i in range(1, len(a)):
         value = a[i]
@@ -31,10 +27,8 @@ def insertionSort2(a):
                 a[j+1] = a[j]
                 j = j - 1
                 hasSwap = True
-            else:
-                break
-        if hasSwap:
-            a[j+1] = value
+            else: break
+        if hasSwap: a[j+1] = value
 
 if __name__ == "__main__":
     a1 = []
