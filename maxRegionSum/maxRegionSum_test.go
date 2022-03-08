@@ -51,7 +51,7 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
 		return
 	}
 
@@ -63,7 +63,7 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
 		return
 	}
 
@@ -75,7 +75,7 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
 		return
 	}
 
@@ -87,7 +87,31 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
+		return
+	}
+
+	list = []int{-4, -2, 5, -6, 3, 4, -1}
+	expectLowerIndex, expectUpperIndex = 4, 5
+	getLowerIndex, getUpperIndex = GetMaxRegionSum1(list)
+	if getLowerIndex != expectLowerIndex {
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
+		return
+	}
+	if getUpperIndex != expectUpperIndex {
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
+		return
+	}
+
+	list = []int{-4, -2, 5, -4, 3, 4, -1}
+	expectLowerIndex, expectUpperIndex = 2, 5
+	getLowerIndex, getUpperIndex = GetMaxRegionSum1(list)
+	if getLowerIndex != expectLowerIndex {
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
+		return
+	}
+	if getUpperIndex != expectUpperIndex {
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -99,7 +123,7 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
 		return
 	}
 
@@ -111,7 +135,7 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
 		return
 	}
 
@@ -123,7 +147,7 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
 		return
 	}
 
@@ -135,7 +159,7 @@ func TestGetMaxRegionSum1(t *testing.T) {
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
 		return
 	}
 }
@@ -145,11 +169,11 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex := 4, 4
 	getLowerIndex, getUpperIndex := GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -157,11 +181,11 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex = 2, 4
 	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get upper index: %d, got %d", expectUpperIndex, getUpperIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -169,11 +193,11 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex = 2, 5
 	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -181,11 +205,35 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex = 2, 3
 	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
+		return
+	}
+
+	list = []int{-4, -2, 5, -6, 3, 4, -1}
+	expectLowerIndex, expectUpperIndex = 4, 5
+	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
+	if getLowerIndex != expectLowerIndex {
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
+		return
+	}
+	if getUpperIndex != expectUpperIndex {
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
+		return
+	}
+
+	list = []int{-4, -2, 5, -4, 3, 4, -1}
+	expectLowerIndex, expectUpperIndex = 2, 5
+	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
+	if getLowerIndex != expectLowerIndex {
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
+		return
+	}
+	if getUpperIndex != expectUpperIndex {
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -193,11 +241,11 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex = 2, 3
 	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -205,11 +253,11 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex = 5, 6
 	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -217,11 +265,11 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex = 5, 6
 	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 
@@ -229,11 +277,11 @@ func TestGetMaxRegionSum2(t *testing.T) {
 	expectLowerIndex, expectUpperIndex = 6, 7
 	getLowerIndex, getUpperIndex = GetMaxRegionSum2(list)
 	if getLowerIndex != expectLowerIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get lower index: %d, got %d in %+v", expectLowerIndex, getLowerIndex, list)
 		return
 	}
 	if getUpperIndex != expectUpperIndex {
-		t.Errorf("Expect to get lower index: %d, got %d", expectLowerIndex, getLowerIndex)
+		t.Errorf("Expect to get upper index: %d, got %d in %+v", expectUpperIndex, getUpperIndex, list)
 		return
 	}
 }

@@ -119,7 +119,10 @@ func GetMaxRegionSum2(list []int) (lowerIndex int, upperIndex int) {
 
 	// Calc max sum for each region
 	for i := 0; i < len(regionList); i++ {
-		// Get the right most index from left to right
+		// Since the left number is always positive, and the sum is always positive, so the LowerIndex is just the LeftIndex
+		regionList[i].LowerIndex = regionList[i].LeftIndex
+
+		// Get the upper index from left to right
 		maxSum := math.MinInt
 		sum := 0
 		for j := regionList[i].LeftIndex; j <= regionList[i].RightIndex; j++ {
@@ -130,20 +133,10 @@ func GetMaxRegionSum2(list []int) (lowerIndex int, upperIndex int) {
 			}
 		}
 
-		// Get the left most index from right to left
-		maxSum = math.MinInt
-		sum = 0
-		for j := regionList[i].UpperIndex; j >= regionList[i].LeftIndex; j-- {
-			sum += list[j]
-			if sum > maxSum {
-				maxSum = sum
-				regionList[i].LowerIndex = j
-			}
-		}
-
 		regionList[i].MaxSum = maxSum
 	}
 
+	// Find the region with max sum
 	maxSum := math.MinInt
 	for _, region := range regionList {
 		if region.MaxSum > maxSum {
